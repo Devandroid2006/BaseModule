@@ -1,4 +1,4 @@
-package com.devandroid.basemodule
+package com.devandroid.basemodule.ui
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -20,8 +20,9 @@ abstract class BaseActivity : AppCompatActivity() {
         return javaClass.simpleName
     }
 
+
     /**
-     * pass layout id form implemented classes
+     * return layout id for the activity
      */
     abstract fun getLayoutId(): Int
 }
