@@ -1,5 +1,39 @@
 package com.devandroid.basemodule.ui
 
-class BaseRcAdapter {
+import android.support.v7.widget.RecyclerView
+import android.view.View
+
+abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.Adapter<VH>() {
+
+    lateinit var mList: List<T>
+
+    /**
+     * update the data models and refresh the UI
+     */
+    fun updateModelList(list: List<T>) {
+        mList = list
+        notifyDataSetChanged()
+    }
+
+
+    override fun getItemCount(): Int {
+        return mList.size
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        //call bindview to update views of child's
+        bindView(holder, mList.get(position))
+    }
+
+    /**
+     * bind data to the view in child class
+     */
+    abstract fun bindView(holder: VH, model: T)
+
+
+    /**
+     * base view holder for the recycler view it be should implemented by the child classes
+     */
+    abstract class BaseVHolder(view: View) : RecyclerView.ViewHolder(view)
 
 }
