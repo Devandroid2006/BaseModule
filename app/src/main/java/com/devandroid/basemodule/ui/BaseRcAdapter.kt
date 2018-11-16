@@ -2,6 +2,7 @@ package com.devandroid.basemodule.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.devandroid.basemodule.utils.logdd
 
 abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.Adapter<VH>() {
 
@@ -21,6 +22,7 @@ abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
+        logdd(String.format("Holder :%s, Position :%d", holder, position))
         //call bindview to update views of child's
         bindView(holder, mList.get(position))
     }

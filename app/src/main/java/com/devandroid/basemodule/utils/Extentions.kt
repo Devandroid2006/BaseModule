@@ -1,12 +1,16 @@
 package com.devandroid.basemodule.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
+import android.net.ConnectivityManager
 import android.support.v7.app.AlertDialog
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.devandroid.basemodule.BuildConfig
 import com.devandroid.basemodule.R
 import com.devandroid.basemodule.ui.BaseActivity
 import com.devandroid.basemodule.ui.BaseFragment
@@ -70,3 +74,43 @@ fun BaseActivity.showNonCancelableAlert(message: String, listener: DialogInterfa
         .create()
         .show()
 }
+
+/**
+ * check for the internet availability
+ */
+fun Context.isNetworkAvailable(): Boolean {
+    val connectivityService = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val activeNetworkInfo = connectivityService.activeNetworkInfo
+    return activeNetworkInfo.isConnected
+}
+
+/**
+ * print the logs for debug variant
+ */
+@SuppressLint("LogNotTimber")
+fun Any.logdd(message: String) {
+    if (BuildConfig.DEBUG) {
+        Log.d(javaClass.simpleName, message)
+    }
+}
+
+/**
+ * print the logs for debug variant
+ */
+@SuppressLint("LogNotTimber")
+fun Any.logee(message: String) {
+    if (BuildConfig.DEBUG) {
+        Log.e(javaClass.simpleName, message)
+    }
+}
+
+/**
+ * print the logs on console
+ */
+fun Any.printlnn(message: String) {
+    if (BuildConfig.DEBUG) {
+        println(String.format("%s, :%s", javaClass.simpleName, message))
+    }
+}
+
+
