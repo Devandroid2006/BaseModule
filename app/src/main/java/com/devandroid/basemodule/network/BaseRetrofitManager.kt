@@ -15,77 +15,56 @@ import java.util.concurrent.TimeUnit
  * @param <T> service type
 </T> */
 
-abstract class BaseRetrofitManager<T> {
+abstract class BaseRetrofitManager<T> : IRetrofitManager<T> {
 
-    val retrofitClient: Retrofit
-        get() = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(okHTTPClient)
+    override fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(getBaseUrl())
+            .client(getOkHttpClient())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            .build();
+    }
 
-    /**
-     * configure the okhttp client
-     *
-     * @return okhttp client
-     */
-    //prepare headers
-    val okHTTPClient: OkHttpClient
-        get() {
-            val httpClient = OkHttpClient().newBuilder()
-                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
-                .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+    override fun getOkHttpClient(): OkHttpClient {
 
-            val interceptor = HttpLoggingInterceptor()
-            interceptor.level = HttpLoggingInterceptor.Level.BODY
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
 
-            httpClient.addInterceptor(interceptor)
-
-            httpClient.addInterceptor { chain ->
+        return OkHttpClient().newBuilder()
+            .connectTimeout(getTimeout(), TimeUnit.SECONDS)
+            .readTimeout(getTimeout(), TimeUnit.SECONDS)
+            .writeTimeout(getTimeout(), TimeUnit.SECONDS)
+            .addInterceptor(interceptor)
+            .addInterceptor { chain ->
                 val original = chain.request()
-                val headers = headers
+                val headers = getHeaderParams()
                 val requestBuilder = original.newBuilder()
                 for ((key, value) in headers) {
                     requestBuilder.addHeader(key, value)
                 }
                 chain.proceed(requestBuilder.build())
-            }
-
-            return httpClient.build()
-        }
-
-
-    /**
-     * @return the header parameters
-     */
-    open val headers: Map<String, String>
-        get() {
-            val params = HashMap<String, String>()
-            params["Accept"] = "application/json"
-            params["Content-Type"] = "application/json"
-            return params
-        }
-
-    /**
-     * get the base url for the service
-     *
-     * @return base url
-     */
-    abstract val baseUrl: String
-
-
-    /**
-     * create service for the given interface
-     *
-     * @param service service interface
-     * @return service interface
-     */
-    fun createService(service: Class<T>): T {
-        return retrofitClient.create(service)
+            }.build()
     }
 
+    override fun getHeaderParams(): Map<String, String> {
+        val params = HashMap<String, String>()
+        params["Accept"] = "application/json"
+        params["Content-Type"] = "application/json"
+        return params
+    }
+
+    override fun createService(service: Class<T>): T {
+        return getRetrofit().create(service)
+    }
+
+    override fun getTimeout(): Long {
+        return DEFAULT_TIMEOUT
+    }
+
+    /**
+     * constants
+     */
     companion object {
 
         private val DEFAULT_TIMEOUT: Long = 60
