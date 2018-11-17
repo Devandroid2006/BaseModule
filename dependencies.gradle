@@ -1,0 +1,15 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    //Library versions
+    compileSDK = 28
+    minSDK = 19
+    targetSDK = 28
+    supportLibraryVersion = '28.0.0'
+    daggerLibraryVersion = '2.16'
+    reactiveJavaVersion = '2.1.14'
+    reactiveAndroidVersion = '2.1.0'
+    retrofitLibraryVersion = '2.4.0'
+    okhttp3LibraryVersion = '3.10.0'
+    rxBinding = '2.1.1'
+    rxRelay = '2.0.0'
+}
