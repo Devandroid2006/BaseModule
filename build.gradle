@@ -2,9 +2,9 @@
 ext {
     //Library versions
     compileSDK = 27
-    minSDK = 19
+    minSDK = 18
     targetSDK = 27
-    supportLibraryVersion = '27.0.1'
+    supportLibraryVersion = '27.0.2'
     daggerLibraryVersion = '2.16'
     reactiveJavaVersion = '2.1.14'
     reactiveAndroidVersion = '2.1.0'
@@ -15,6 +15,7 @@ ext {
 }
 
 buildscript {
+    ext.kotlin_version = '1.3.10'
     ext.kotlin_version = '1.3.0'
     repositories {
         google()
