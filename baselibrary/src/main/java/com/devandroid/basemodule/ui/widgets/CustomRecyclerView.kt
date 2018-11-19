@@ -1,4 +1,4 @@
-package com.devandroid.basemodule.widgets
+package com.devandroid.basemodule.ui.widgets
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

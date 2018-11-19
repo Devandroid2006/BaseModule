@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -52,12 +54,28 @@ fun BaseActivity.showNonCancelableAlert(message: String) {
 /**
  * replace a fragment with back stack support
  */
-fun BaseActivity.replaceFragment(container: Int, fragment: BaseFragment) {
-    supportFragmentManager
+fun BaseFragment.replaceWith(container: Int) {
+    //return if manager is null
+    val manager = activity?.supportFragmentManager ?: return
+    manager
         .beginTransaction()
-        .replace(container, fragment, fragment.getTAG())
+        .replace(container, this, getTAG())
         //add to back stack if required
-        .addToBackStack(if (fragment.isAddToBackStack) fragment.getTAG() else null)
+        .addToBackStack(if (isAddToBackStack) getTAG() else null)
+        .commit()
+}
+
+/**
+ * add a fragment with back stack support
+ */
+fun BaseFragment.attachTo(container: Int) {
+    //return if manager is null
+    val manager = activity?.supportFragmentManager ?: return
+    manager
+        .beginTransaction()
+        .add(container, this, getTAG())
+        //add to back stack if required
+        .addToBackStack(if (isAddToBackStack) getTAG() else null)
         .commit()
 }
 
@@ -113,4 +131,11 @@ fun Any.printlnn(message: String) {
     }
 }
 
+fun RecyclerView.attachVerticalManager() {
+    layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+}
+
+fun RecyclerView.attachHorizontalManager() {
+    layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+}
 
