@@ -1,10 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 ext {
     //Library versions
-    compileSDK = 28
+    compileSDK = 27
     minSDK = 19
-    targetSDK = 28
-    supportLibraryVersion = '28.0.0'
+    targetSDK = 27
+    supportLibraryVersion = '27.0.1'
     daggerLibraryVersion = '2.16'
     reactiveJavaVersion = '2.1.14'
     reactiveAndroidVersion = '2.1.0'
