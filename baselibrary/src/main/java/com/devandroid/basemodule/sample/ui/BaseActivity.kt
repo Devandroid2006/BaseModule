@@ -4,12 +4,13 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.devandroid.basemodule.utils.logdd
+import com.devandroid.basemodule.utils.printll
 
 abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        logdd("onCreate")
+        logdd("called")
         setContentView(getLayoutId())
         //default orientation of the activity will be portrait
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -17,32 +18,34 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        logdd("onStart")
+        logdd("called")
+        printll("called")
+
     }
 
     override fun onRestart() {
         super.onRestart()
-        logdd("onRestart")
+        logdd("called")
     }
 
     override fun onResume() {
         super.onResume()
-        logdd("onResume")
+        logdd("called")
     }
 
     override fun onPause() {
         super.onPause()
-        logdd("onPause")
+        logdd("called")
     }
 
     override fun onStop() {
         super.onStop()
-        logdd("onStop")
+        logdd("called")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        logdd("onDestroy")
+        logdd("called")
     }
 
     /**

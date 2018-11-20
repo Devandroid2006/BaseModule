@@ -7,6 +7,7 @@ import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.sample.adapter.SampleAdapter
 import com.devandroid.basemodule.sample.model.BaseDataModel
 import com.devandroid.basemodule.sample.model.SampleDataModel
+import com.devandroid.basemodule.utils.attachVerticalManager
 import kotlinx.android.synthetic.main.fragment_sample.*
 
 /**
@@ -29,6 +30,7 @@ class SampleFragment : BaseFragment() {
         val sampleAdapter = SampleAdapter()
         val list = listOf<BaseDataModel>(SampleDataModel("1"), SampleDataModel("2"))
         listView.adapter = sampleAdapter
+        listView.attachVerticalManager()
         sampleAdapter.updateModelList(list)
 
     }

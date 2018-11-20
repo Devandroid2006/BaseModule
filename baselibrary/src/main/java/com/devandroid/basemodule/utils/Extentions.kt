@@ -108,7 +108,9 @@ fun Context.isNetworkAvailable(): Boolean {
 @SuppressLint("LogNotTimber")
 fun Any.logdd(message: String) {
     if (BuildConfig.DEBUG) {
-        Log.d(javaClass.simpleName, message)
+        //executing method name
+        val methodName = Thread.currentThread().stackTrace.get(3).methodName
+        Log.d(String.format("%s.%s", javaClass.simpleName, methodName), message)
     }
 }
 
@@ -118,16 +120,20 @@ fun Any.logdd(message: String) {
 @SuppressLint("LogNotTimber")
 fun Any.logee(message: String) {
     if (BuildConfig.DEBUG) {
-        Log.e(javaClass.simpleName, message)
+        //get the name of the caller function
+        val methodName = Thread.currentThread().stackTrace.get(3).methodName
+        Log.e(String.format("%s.%s", javaClass.simpleName, methodName), message)
     }
 }
 
 /**
  * print the logs on console
  */
-fun Any.printlnn(message: String) {
+fun Any.printll(message: String) {
     if (BuildConfig.DEBUG) {
-        println(String.format("%s, :%s", javaClass.simpleName, message))
+        //get the name of the caller function
+        val methodName = Thread.currentThread().stackTrace.get(2).methodName
+        println(String.format("%s.%s :%s", javaClass.simpleName, methodName, message))
     }
 }
 

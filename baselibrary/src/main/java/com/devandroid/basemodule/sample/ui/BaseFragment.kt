@@ -21,62 +21,62 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        logdd("onCreate")
+        logdd("called")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        logdd("onCreateView")
+        logdd("called")
         return container?.inflate(getLayoutId())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        logdd("onViewCreated")
+        logdd("called")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        logdd("onActivityCreated")
+        logdd("called")
     }
 
     override fun onStart() {
         super.onStart()
-        logdd("onStart")
+        logdd("called")
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        logdd("onViewStateRestored")
+        logdd("called")
     }
 
     override fun onResume() {
         super.onResume()
-        logdd("onResume")
+        logdd("called")
     }
 
     override fun onPause() {
         super.onPause()
-        logdd("onPause")
+        logdd("called")
     }
 
     override fun onStop() {
         super.onStop()
-        logdd("onStop")
+        logdd("called")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        logdd("onDestroyView")
+        logdd("called")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        logdd("onDestroy")
+        logdd("called")
     }
 
     override fun onDetach() {
         super.onDetach()
-        logdd("onDetach")
+        logdd("called")
     }
 
     /**

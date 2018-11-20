@@ -13,6 +13,7 @@ abstract class BaseRcAdapter<T : BaseDataModel, VH : BaseRcAdapter.BaseVHolder> 
      * update the data models and refresh the UI
      */
     fun updateModelList(list: List<T>) {
+        logdd(list.size.toString())
         mList = list
         notifyDataSetChanged()
     }
