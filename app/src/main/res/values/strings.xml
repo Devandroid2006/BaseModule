@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BaseModule</string>
+    <string name="app_name">SampleBaseModule</string>
     <string name="alert">Alert</string>
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>

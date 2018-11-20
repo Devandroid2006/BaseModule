@@ -13,6 +13,7 @@ class SampleMainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //replace the fragment with container
-        SampleFragment.newInstance.replaceWith(R.id.container)
+        val sampleFragment = SampleFragment.newInstance
+        replaceWith(R.id.container, sampleFragment)
     }
 }

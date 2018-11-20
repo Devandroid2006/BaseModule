@@ -54,14 +54,12 @@ fun BaseActivity.showNonCancelableAlert(message: String) {
 /**
  * replace a fragment with back stack support
  */
-fun BaseFragment.replaceWith(container: Int) {
-    //return if manager is null
-    val manager = activity?.supportFragmentManager ?: return
-    manager
+fun BaseActivity.replaceWith(container: Int, baseFragment: BaseFragment) {
+    supportFragmentManager
         .beginTransaction()
-        .replace(container, this, getTAG())
+        .replace(container, baseFragment, baseFragment.getTAG())
         //add to back stack if required
-        .addToBackStack(if (isAddToBackStack) getTAG() else null)
+        .addToBackStack(if (baseFragment.isAddToBackStack) getTAG() else null)
         .commit()
 }
 

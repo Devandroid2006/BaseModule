@@ -28,7 +28,12 @@ class SampleFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         //listView.attachVerticalManager()
         val sampleAdapter = SampleAdapter()
-        val list = listOf<BaseDataModel>(SampleDataModel("1"), SampleDataModel("2"))
+        //prepare dummy data
+        val list = listOf<BaseDataModel>(
+            SampleDataModel("1"), SampleDataModel("2"),
+            SampleDataModel("1"), SampleDataModel("2"), SampleDataModel("1"), SampleDataModel("2")
+            , SampleDataModel("1"), SampleDataModel("2"), SampleDataModel("1"), SampleDataModel("2")
+        )
         listView.adapter = sampleAdapter
         listView.attachVerticalManager()
         sampleAdapter.updateModelList(list)
