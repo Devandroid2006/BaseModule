@@ -3,7 +3,7 @@ package com.devandroid.basemodule.sample.ui
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import com.devandroid.basemodule.R
+import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.sample.adapter.SampleAdapter
 import com.devandroid.basemodule.sample.model.BaseDataModel
 import com.devandroid.basemodule.sample.model.SampleDataModel

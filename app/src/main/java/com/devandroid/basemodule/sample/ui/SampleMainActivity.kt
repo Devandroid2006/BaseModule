@@ -1,7 +1,7 @@
 package com.devandroid.basemodule.sample.ui
 
 import android.os.Bundle
-import com.devandroid.basemodule.R
+import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.utils.replaceWith
 
 class SampleMainActivity : BaseActivity() {
