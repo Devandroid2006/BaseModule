@@ -6,7 +6,7 @@
              android:background="@color/colorAccent"
              tools:context=".ui.SampleFragment">
 
-    <com.devandroid.basemodule.ui.widgets.CustomRecyclerView
+    <com.devandroid.basemodule.sample.ui.widgets.CustomRecyclerView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

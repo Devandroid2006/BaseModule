@@ -1,4 +1,4 @@
-package com.devandroid.basemodule.ui
+package com.devandroid.basemodule.sample.ui
 
 import android.os.Bundle
 import com.devandroid.basemodule.R

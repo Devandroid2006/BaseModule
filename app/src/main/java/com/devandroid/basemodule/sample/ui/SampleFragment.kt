@@ -1,12 +1,12 @@
-package com.devandroid.basemodule.ui
+package com.devandroid.basemodule.sample.ui
 
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.devandroid.basemodule.R
-import com.devandroid.basemodule.adapter.SampleAdapter
-import com.devandroid.basemodule.model.BaseDataModel
-import com.devandroid.basemodule.model.SampleDataModel
+import com.devandroid.basemodule.sample.adapter.SampleAdapter
+import com.devandroid.basemodule.sample.model.BaseDataModel
+import com.devandroid.basemodule.sample.model.SampleDataModel
 import kotlinx.android.synthetic.main.fragment_sample.*
 
 /**

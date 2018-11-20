@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion compileSDK
     defaultConfig {
-        applicationId "com.devandroid.basemodule"
+        applicationId "com.devandroid.basemodule.sample"
         minSdkVersion minSDK
         targetSdkVersion targetSDK
         versionCode 1
@@ -22,27 +22,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //Test Environment setup
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    //DI enabler!
-    testImplementation "com.google.dagger:dagger:$daggerLibraryVersion"
-    testAnnotationProcessor "com.google.dagger:dagger-compiler:$daggerLibraryVersion"
-    //DI enabler!
-    implementation "com.google.dagger:dagger:$daggerLibraryVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$daggerLibraryVersion"
-    compileOnly 'javax.annotation:jsr250-api:1.0'
-    //Reactive Java for Android
-    implementation "io.reactivex.rxjava2:rxandroid:$reactiveAndroidVersion"
-    implementation "io.reactivex.rxjava2:rxjava:$reactiveJavaVersion"
-    //RxBinding - Reactive Java for UI.
-    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxBinding"
-    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBinding"
-    implementation "com.jakewharton.rxrelay2:rxrelay:$rxRelay"
     implementation project(':baselibrary')
+    testImplementation 'junit:junit:4.12'
+    //Development Environment setup
+    //Android libs
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation 'com.android.support:multidex:1.0.3'
 }

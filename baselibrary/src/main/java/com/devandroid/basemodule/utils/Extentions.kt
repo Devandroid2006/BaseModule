@@ -14,8 +14,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.devandroid.basemodule.BuildConfig
 import com.devandroid.basemodule.R
-import com.devandroid.basemodule.ui.BaseActivity
-import com.devandroid.basemodule.ui.BaseFragment
+import com.devandroid.basemodule.sample.ui.BaseActivity
+import com.devandroid.basemodule.sample.ui.BaseFragment
 
 /**
  * show toast for long duration

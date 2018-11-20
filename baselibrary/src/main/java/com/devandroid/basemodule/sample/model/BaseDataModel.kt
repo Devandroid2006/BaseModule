@@ -1,4 +1,4 @@
-package com.devandroid.basemodule.model
+package com.devandroid.basemodule.sample.model
 
 abstract class BaseDataModel {
     //base data model
