@@ -19,8 +19,5 @@ class MarqueeTextView @JvmOverloads constructor(context: Context, attrs: Attribu
         isFocusableInTouchMode = true
         isFocusable = true
         setHorizontallyScrolling(true)
-        freezesText = true
-        setSelectAllOnFocus(true)
     }
-
 }

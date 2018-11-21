@@ -3,6 +3,7 @@ package com.devandroid.basemodule.sample.ui
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import com.devandroid.basemodule.utils.logdd
 import com.devandroid.basemodule.utils.printll
 
@@ -46,6 +47,38 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         logdd("called")
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        logdd("called")
+        //handle the navigation button back arrow
+        if (item?.itemId == android.R.id.home) {
+            onBackPressed()
+            //consume the home button press
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        logdd("called")
+        //back stack entry is 1 then kill the activity
+        val backStackEntryCount = supportFragmentManager.backStackEntryCount
+        if (backStackEntryCount > 0) {
+            val baseFragment = supportFragmentManager.fragments[0] as BaseFragment
+            if (baseFragment.isNotifyBackPress()) {
+                baseFragment.handleBackPressed()
+            } else {
+                if (backStackEntryCount == 1) {
+                    finish()
+                    //finish and return
+                    return
+                }
+                super.onBackPressed()
+            }
+        } else {
+            finish()
+        }
     }
 
     /**

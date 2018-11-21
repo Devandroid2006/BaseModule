@@ -38,9 +38,6 @@ class SampleFragment : BaseFragment() {
         listView.attachVerticalManager()
         sampleAdapter.updateModelList(list)
 
-        marquee.setSelected(true);
-
     }
-
 
 }

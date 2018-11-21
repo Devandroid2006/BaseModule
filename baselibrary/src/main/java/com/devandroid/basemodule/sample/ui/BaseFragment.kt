@@ -79,6 +79,23 @@ abstract class BaseFragment : Fragment() {
         logdd("called")
     }
 
+
+    /**
+     * handle the back pres event
+     */
+    open fun handleBackPressed() {
+        logdd("called")
+        //do nothing
+    }
+
+    /**
+     * return true if you want to handle back key press
+     */
+    open fun isNotifyBackPress(): Boolean {
+        logdd("called")
+        return false
+    }
+
     /**
      * return the tag name for the class
      */
