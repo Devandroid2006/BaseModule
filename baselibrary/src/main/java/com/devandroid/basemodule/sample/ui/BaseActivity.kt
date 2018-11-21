@@ -66,7 +66,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val backStackEntryCount = supportFragmentManager.backStackEntryCount
         if (backStackEntryCount > 0) {
             val baseFragment = supportFragmentManager.fragments[0] as BaseFragment
-            if (baseFragment.isNotifyBackPress()) {
+            if (null != baseFragment && baseFragment.isNotifyBackPress()) {
                 baseFragment.handleBackPressed()
             } else {
                 if (backStackEntryCount == 1) {
