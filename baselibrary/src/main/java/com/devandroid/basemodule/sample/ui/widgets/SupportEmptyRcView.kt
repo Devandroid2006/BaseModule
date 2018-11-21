@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
 
-class CustomRecyclerView : RecyclerView {
+class SupportEmptyRcView : RecyclerView {
 
     private var emptyView: View? = null
 
@@ -16,10 +16,10 @@ class CustomRecyclerView : RecyclerView {
             if (adapter != null && emptyView != null) {
                 if (adapter.itemCount == 0) {
                     emptyView!!.visibility = View.VISIBLE
-                    this@CustomRecyclerView.visibility = View.GONE
+                    this@SupportEmptyRcView.visibility = View.GONE
                 } else {
                     emptyView!!.visibility = View.GONE
-                    this@CustomRecyclerView.visibility = View.VISIBLE
+                    this@SupportEmptyRcView.visibility = View.VISIBLE
                 }
             }
         }
