@@ -8,7 +8,7 @@ interface IRetrofitManager<T> {
     /**
      * return the retrofit client
      */
-    fun getRetrofit(): Retrofit
+    fun getRetrofit(baseurl: String): Retrofit
 
     /**
      * return the okhttp client
@@ -20,15 +20,6 @@ interface IRetrofitManager<T> {
      */
     fun getHeaderParams(): Map<String, String>
 
-    /**
-     * create ap service for the given interface
-     */
-    fun createService(T: Class<T>): T
-
-    /**
-     * return the base url
-     */
-    fun getBaseUrl(): String
 
     /**
      * return the timeout period

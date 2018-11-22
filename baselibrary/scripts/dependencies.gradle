@@ -1,0 +1,83 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    //Library versions
+    compileSDK = 28
+    minSDK = 18
+    targetSDK = 28
+    supportLibraryVersion = '28.0.0'
+    daggerLibraryVersion = '2.16'
+    reactiveJavaVersion = '2.1.14'
+    reactiveAndroidVersion = '2.1.0'
+    retrofitLibraryVersion = '2.4.0'
+    okhttp3LibraryVersion = '3.10.0'
+    rxBinding = '2.1.1'
+    rxRelay = '2.0.0'
+    multidex = '1.0.3'
+    constraintLayout = '1.1.0'
+    gson = '2.8.5'
+
+    //////////////////////////////////////////////////////////////////////////
+    AndroidSupport = [
+            //android support libraries android material design
+            Support         : ["com.android.support:support-v4:$supportLibraryVersion",
+                               "com.android.support:cardview-v7:$supportLibraryVersion",
+                               "com.android.support:appcompat-v7:$supportLibraryVersion",
+                               "com.android.support:design:$supportLibraryVersion"],
+
+            //constraint layout
+            ConstraintLayout: [
+                    "com.android.support.constraint:constraint-layout:$constraintLayout"
+            ],
+
+            //MultiDex
+            MultiDex        : [
+                    "com.android.support:multidex:$multidex"
+            ],
+
+            //GSON - Json parser
+            Gson            : [
+                    "com.google.code.gson:gson:$gson"
+            ]
+    ]
+
+    //////////////////////////////////////////////////////////////////////////
+    RxJava = [
+            //for background operations
+            "io.reactivex.rxjava2:rxandroid:$reactiveAndroidVersion",
+            "io.reactivex.rxjava2:rxjava:$reactiveJavaVersion"
+    ]
+
+    //////////////////////////////////////////////////////////////////////////
+
+    RxBinding = [
+            //RxBinding - Reactive Java for UI.
+            "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxBinding",
+            "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBinding",
+            "com.jakewharton.rxrelay2:rxrelay:$rxRelay"
+    ]
+
+    //////////////////////////////////////////////////////////////////////////
+
+    Network = [
+            //A type-safe HTTP client for Android and Java
+            Retrofit: ["com.squareup.retrofit2:retrofit:$retrofitLibraryVersion",
+                       "com.squareup.retrofit2:converter-gson:$retrofitLibraryVersion",
+                       "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibraryVersion"],
+
+            //HTTP & HTTP/2 client for Android and Java applications
+            OkHttp  : ["com.squareup.okhttp3:okhttp:$okhttp3LibraryVersion",
+                       "com.squareup.okhttp3:logging-interceptor:$okhttp3LibraryVersion"]
+
+    ]
+
+    //////////////////////////////////////////////////////////////////////////
+
+    DI = [
+            //DI enabler!
+            "com.google.dagger:dagger:$daggerLibraryVersion",
+            "com.google.dagger:dagger-compiler:$daggerLibraryVersion"
+    ]
+
+    //////////////////////////////////////////////////////////////////////////
+
+}

@@ -1,7 +1,11 @@
 apply plugin: 'com.android.library'
+
 apply plugin: 'kotlin-android'
 
+apply from: 'scripts/dependencies.gradle'
+
 android {
+
     compileSdkVersion compileSDK
 
     defaultConfig {
@@ -31,24 +35,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //Development Environment setup
-    //Android libs
-    implementation "com.android.support:support-v4:$supportLibraryVersion"
-    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
-    implementation "com.android.support:design:$supportLibraryVersion"
-    implementation 'com.android.support:multidex:1.0.3'
-
-    //A type-safe HTTP client for Android and Java
-    implementation "com.squareup.retrofit2:retrofit:$retrofitLibraryVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitLibraryVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibraryVersion"
-
-    //HTTP & HTTP/2 client for Android and Java applications
-    implementation "com.squareup.okhttp3:okhttp:$okhttp3LibraryVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3LibraryVersion"
-
-    //GSON - Json parser
-    implementation 'com.google.code.gson:gson:2.8.5'
+    //scripts/dependencies.gradle
+    implementation AndroidSupport.Support
+    implementation AndroidSupport.Gson
+    implementation AndroidSupport.MultiDex
+    implementation AndroidSupport.ConstraintLayout
+    implementation RxJava
+    implementation Network.Retrofit
+    implementation Network.OkHttp
 
 }
 repositories {

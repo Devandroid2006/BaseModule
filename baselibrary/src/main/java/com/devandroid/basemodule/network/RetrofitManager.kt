@@ -13,13 +13,14 @@ import java.util.concurrent.TimeUnit
  * impl classes must provide the base url and the type of the service
  *
  * @param <T> service type
-</T> */
 
-abstract class BaseRetrofitManager<T> : IRetrofitManager<T> {
+ */
 
-    override fun getRetrofit(): Retrofit {
+class RetrofitManager<T> : IRetrofitManager<T> {
+
+    override fun getRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(getBaseUrl())
+            .baseUrl(baseUrl)
             .client(getOkHttpClient())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
@@ -54,19 +55,25 @@ abstract class BaseRetrofitManager<T> : IRetrofitManager<T> {
         return params
     }
 
-    override fun createService(service: Class<T>): T {
-        return getRetrofit().create(service)
-    }
-
     override fun getTimeout(): Long {
         return DEFAULT_TIMEOUT
     }
 
     /**
-     * constants
+     * constants and utility methods of retro fit manager
      */
     companion object {
-
+        /**
+         * default time of the network call
+         */
         private val DEFAULT_TIMEOUT: Long = 60
+
+        /**
+         * return a service for the network calls
+         */
+        fun <T : Any?> create(service: Class<T>, baseUrl: String): T {
+            val manager = RetrofitManager<T>()
+            return manager.getRetrofit(baseUrl).create(service)
+        }
     }
 }
