@@ -6,6 +6,7 @@ import com.devandroid.basemodule.sample.apis.ApiClient
 import com.devandroid.basemodule.utils.logdd
 import com.devandroid.basemodule.utils.logee
 import com.devandroid.basemodule.utils.replaceWith
+import com.devandroid.basemodule.utils.showNonCancelableAlert
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -21,13 +22,15 @@ class SampleMainActivity : BaseActivity() {
         val sampleFragment = SampleFragment.newInstance
         replaceWith(R.id.container, sampleFragment)
 
-        ApiClient.provideFakeWebservice().getAlbums<String>()
+        ApiClient.provideFakeWebservice().getAlbums()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 logdd(it)
+                showNonCancelableAlert(it)
             }, {
                 logee(it.localizedMessage)
+                showNonCancelableAlert(it.localizedMessage)
             })
     }
 }

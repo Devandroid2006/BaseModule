@@ -42,6 +42,5 @@ dependencies {
     implementation RxJava
     implementation Network.Retrofit
     implementation Network.OkHttp
-    implementation DI
 
 }

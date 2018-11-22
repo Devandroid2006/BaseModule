@@ -11,19 +11,19 @@ import retrofit2.http.GET
 interface FakeWebService {
 
     @GET("/posts/1/comments")
-    fun <T : Any?> getComments(): Flowable<T>
+    fun getComments(): Flowable<String>
 
     @GET("/albums/1/photos")
-    fun <T : Any?> getPhotos(): Flowable<T>
+    fun getPhotos(): Flowable<String>
 
     @GET("/users/1/albums")
-    fun <T : Any?> getAlbums(): Flowable<T>
+    fun getAlbums(): Flowable<String>
 
     @GET("/users/1/todos")
-    fun <T : Any?> getToDos(): Flowable<T>
+    fun getToDos(): Flowable<String>
 
     @GET("/users/1/posts")
-    fun <T : Any?> getPosts(): Flowable<T>
+    fun getPosts(): Flowable<String>
 
 
     companion object {
