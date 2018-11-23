@@ -7,7 +7,7 @@ import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.ui.BaseActivity
 import com.devandroid.basemodule.utils.isNetworkAvailable
 import com.devandroid.basemodule.utils.logdd
-import com.devandroid.basemodule.utils.replaceWith
+import com.devandroid.basemodule.utils.replaceTo
 import com.devandroid.basemodule.utils.showNonCancelableAlert
 
 class SampleMainActivity : BaseActivity() {
@@ -59,33 +59,33 @@ class SampleMainActivity : BaseActivity() {
         } else {
             showNonCancelableAlert(getString(R.string.err_no_internet))
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun handlePostsAction() {
         val baseFragment = PostsFragment.newInstance
-        replaceWith(R.id.container, baseFragment)
+        replaceTo(R.id.container, baseFragment)
     }
 
     private fun handleToDosAction() {
         val baseFragment = ToDosFragment.newInstance
-        replaceWith(R.id.container, baseFragment)
+        replaceTo(R.id.container, baseFragment)
 
     }
 
     private fun handlePhotosAction() {
         val baseFragment = PhotosFragment.newInstance
-        replaceWith(R.id.container, baseFragment)
+        replaceTo(R.id.container, baseFragment)
 
     }
 
     private fun handleAlbumsAction() {
         val baseFragment = AlbumsFragment.newInstance
-        replaceWith(R.id.container, baseFragment)
+        replaceTo(R.id.container, baseFragment)
     }
 
     private fun handleCommentsAction() {
         val baseFragment = CommentsFragment.newInstance
-        replaceWith(R.id.container, baseFragment)
+        replaceTo(R.id.container, baseFragment)
     }
 }

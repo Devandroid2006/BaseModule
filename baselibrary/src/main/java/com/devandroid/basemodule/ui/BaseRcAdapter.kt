@@ -2,6 +2,7 @@ package com.devandroid.basemodule.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.view.ViewGroup
 import com.devandroid.basemodule.utils.logdd
 
 abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.Adapter<VH>() {
@@ -12,7 +13,7 @@ abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.A
      * update the data models and refresh the UI
      */
     fun updateModelList(list: List<T>) {
-        logdd(list.size.toString())
+        logdd("called")
         mList = list
         notifyDataSetChanged()
     }
@@ -22,8 +23,13 @@ abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.A
         return mList.size
     }
 
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): VH {
+        logdd("called")
+        return super.createViewHolder(p0, p1)
+    }
+
     override fun onBindViewHolder(holder: VH, position: Int) {
-        logdd(String.format("Holder :%s, Position :%d", holder, position))
+        logdd("called")
         //call bindview to update views of child's
         bindView(holder, mList.get(position))
     }

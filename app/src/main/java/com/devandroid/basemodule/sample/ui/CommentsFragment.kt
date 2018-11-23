@@ -13,7 +13,7 @@ import com.devandroid.basemodule.utils.logee
 import com.devandroid.basemodule.utils.showNonCancelableAlert
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_sample.*
+import kotlinx.android.synthetic.main.reusable_listview_layout.*
 
 /**
  * A simple [Fragment] subclass.
@@ -25,13 +25,16 @@ class CommentsFragment : BaseFragment() {
         val newInstance = CommentsFragment()
     }
 
+    val mCommentsAdapter = CommentsAdapter();
+
     override fun getLayoutId(): Int {
-        return R.layout.fragment_sample
+        return R.layout.reusable_listview_layout
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         listView.attachVerticalManager()
+        listView.adapter = mCommentsAdapter
         handleCommentsAction()
     }
 
@@ -43,9 +46,7 @@ class CommentsFragment : BaseFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     logdd(it.toString())
-                    val commentsAdapter = CommentsAdapter()
-                    listView.adapter = commentsAdapter
-                    commentsAdapter.updateModelList(it)
+                    mCommentsAdapter.updateModelList(it)
 
                 }, {
                     logee(it.localizedMessage)

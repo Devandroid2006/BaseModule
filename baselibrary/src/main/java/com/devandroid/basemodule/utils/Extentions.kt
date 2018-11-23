@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.method.ScrollingMovementMethod
@@ -17,7 +18,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.devandroid.basemodule.BuildConfig
 import com.devandroid.basemodule.R
-import com.devandroid.basemodule.ui.BaseActivity
 import com.devandroid.basemodule.ui.BaseFragment
 
 /**
@@ -44,12 +44,24 @@ fun ViewGroup.inflate(layoutId: Int): View {
 /**
  * replace a fragment with back stack support
  */
-fun BaseActivity.replaceWith(container: Int, baseFragment: BaseFragment) {
+fun AppCompatActivity.replaceTo(container: Int, baseFragment: BaseFragment) {
     supportFragmentManager
         .beginTransaction()
         .replace(container, baseFragment, baseFragment.getTAG())
         //add to back stack if required
-        .addToBackStack(if (baseFragment.isAddToBackStack) getTAG() else null)
+        .addToBackStack(if (baseFragment.isAddToBackStack) baseFragment.getTAG() else null)
+        .commit()
+}
+
+/**
+ * add a fragment with back stack support
+ */
+fun AppCompatActivity.addTo(container: Int, baseFragment: BaseFragment) {
+    supportFragmentManager
+        .beginTransaction()
+        .add(container, baseFragment, baseFragment.getTAG())
+        //add to back stack if required
+        .addToBackStack(if (baseFragment.isAddToBackStack) baseFragment.getTAG() else null)
         .commit()
 }
 

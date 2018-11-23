@@ -13,7 +13,7 @@ import com.devandroid.basemodule.utils.logee
 import com.devandroid.basemodule.utils.showNonCancelableAlert
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_sample.*
+import kotlinx.android.synthetic.main.reusable_listview_layout.*
 
 /**
  * A simple [Fragment] subclass.
@@ -26,7 +26,7 @@ class PostsFragment : BaseFragment() {
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.fragment_sample
+        return R.layout.reusable_listview_layout
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
