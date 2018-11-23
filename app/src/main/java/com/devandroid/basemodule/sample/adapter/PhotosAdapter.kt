@@ -11,7 +11,7 @@ import com.devandroid.basemodule.utils.inflate
 class PhotosAdapter : BaseRcAdapter<PhotoInfo, PhotosAdapter.SampleHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleHolder {
-        val view = parent.inflate(R.layout.row_sample)
+        val view = parent.inflate(R.layout.list_item_photo)
         return SampleHolder(view)
     }
 
