@@ -37,9 +37,7 @@ dependencies {
 
     //scripts/dependencies.gradle
     implementation AndroidSupport.Support
-    implementation AndroidSupport.Gson
-    implementation AndroidSupport.MultiDex
-    implementation AndroidSupport.ConstraintLayout
+    implementation AndroidSupport.Design
     implementation RxJava
     implementation Network.Retrofit
     implementation Network.OkHttp

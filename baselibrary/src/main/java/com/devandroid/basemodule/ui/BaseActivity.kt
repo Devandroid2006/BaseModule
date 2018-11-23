@@ -1,4 +1,4 @@
-package com.devandroid.basemodule.sample.ui
+package com.devandroid.basemodule.ui
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle

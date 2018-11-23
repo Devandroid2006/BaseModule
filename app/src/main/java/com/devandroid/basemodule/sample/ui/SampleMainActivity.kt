@@ -3,6 +3,7 @@ package com.devandroid.basemodule.sample.ui
 import android.os.Bundle
 import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.sample.apis.ApiClient
+import com.devandroid.basemodule.ui.BaseActivity
 import com.devandroid.basemodule.utils.logdd
 import com.devandroid.basemodule.utils.logee
 import com.devandroid.basemodule.utils.replaceWith

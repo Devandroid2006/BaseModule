@@ -36,6 +36,7 @@ dependencies {
 
     //scripts/dependencies.gradle
     implementation AndroidSupport.Support
+    implementation AndroidSupport.Design
     implementation AndroidSupport.Gson
     implementation AndroidSupport.MultiDex
     implementation AndroidSupport.ConstraintLayout

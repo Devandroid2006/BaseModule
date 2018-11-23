@@ -3,11 +3,11 @@ package com.devandroid.basemodule.sample.ui
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import com.devandroid.basemodule.model.BaseDataModel
 import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.sample.adapter.SampleAdapter
-import com.devandroid.basemodule.sample.model.BaseDataModel
 import com.devandroid.basemodule.sample.model.SampleDataModel
-import com.devandroid.basemodule.utils.attachVerticalManager
+import com.devandroid.basemodule.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_sample.*
 
 /**

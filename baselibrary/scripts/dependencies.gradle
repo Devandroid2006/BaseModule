@@ -20,21 +20,25 @@ ext {
     AndroidSupport = [
             //android support libraries android material design
             Support         : ["com.android.support:support-v4:$supportLibraryVersion",
-                               "com.android.support:cardview-v7:$supportLibraryVersion",
-                               "com.android.support:appcompat-v7:$supportLibraryVersion",
-                               "com.android.support:design:$supportLibraryVersion"],
+                               "com.android.support:appcompat-v7:$supportLibraryVersion"
+            ],
 
-            //constraint layout
+            //RecyclerView, cardview and material design
+            Design          : [
+                    "com.android.support:cardview-v7:$supportLibraryVersion",
+                    "com.android.support:design:$supportLibraryVersion",
+                    "com.android.support:recyclerview-v7:$supportLibraryVersion"
+            ],
+
+
             ConstraintLayout: [
                     "com.android.support.constraint:constraint-layout:$constraintLayout"
             ],
 
-            //MultiDex
             MultiDex        : [
                     "com.android.support:multidex:$multidex"
             ],
 
-            //GSON - Json parser
             Gson            : [
                     "com.google.code.gson:gson:$gson"
             ]
@@ -60,13 +64,17 @@ ext {
 
     Network = [
             //A type-safe HTTP client for Android and Java
-            Retrofit: ["com.squareup.retrofit2:retrofit:$retrofitLibraryVersion",
-                       "com.squareup.retrofit2:converter-gson:$retrofitLibraryVersion",
-                       "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibraryVersion"],
+            Retrofit: [
+                    "com.squareup.retrofit2:retrofit:$retrofitLibraryVersion",
+                    "com.squareup.retrofit2:converter-gson:$retrofitLibraryVersion",
+                    "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibraryVersion"
+            ],
 
             //HTTP & HTTP/2 client for Android and Java applications
-            OkHttp  : ["com.squareup.okhttp3:okhttp:$okhttp3LibraryVersion",
-                       "com.squareup.okhttp3:logging-interceptor:$okhttp3LibraryVersion"]
+            OkHttp  : [
+                    "com.squareup.okhttp3:okhttp:$okhttp3LibraryVersion",
+                    "com.squareup.okhttp3:logging-interceptor:$okhttp3LibraryVersion"
+            ]
 
     ]
 
