@@ -2,10 +2,9 @@ package com.devandroid.basemodule.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.devandroid.basemodule.model.BaseDataModel
 import com.devandroid.basemodule.utils.logdd
 
-abstract class BaseRcAdapter<T : BaseDataModel, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.Adapter<VH>() {
+abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.Adapter<VH>() {
 
     lateinit var mList: List<T>
 
