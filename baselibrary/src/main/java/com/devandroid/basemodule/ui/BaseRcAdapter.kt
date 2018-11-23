@@ -20,6 +20,7 @@ abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.A
 
 
     override fun getItemCount(): Int {
+        logdd("called")
         return mList.size
     }
 
