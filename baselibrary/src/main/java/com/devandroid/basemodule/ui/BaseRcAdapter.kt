@@ -7,7 +7,11 @@ import com.devandroid.basemodule.utils.logdd
 
 abstract class BaseRcAdapter<T, VH : BaseRcAdapter.BaseVHolder> : RecyclerView.Adapter<VH>() {
 
-    lateinit var mList: List<T>
+    var mList: List<T>
+
+    init {
+        mList = ArrayList<T>()
+    }
 
     /**
      * update the data models and refresh the UI
