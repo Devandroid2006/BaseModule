@@ -20,6 +20,6 @@ class PostsAdapter : BaseRcAdapter<PostInfo, PostsAdapter.SampleHolder>() {
     }
 
     class SampleHolder(view: View) : BaseRcAdapter.BaseVHolder(view) {
-        val name = view.findViewById<TextView>(R.id.name);
+//        val name = view.findViewById<TextView>(R.id.name);
     }
 }

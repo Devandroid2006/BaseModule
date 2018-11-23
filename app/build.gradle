@@ -41,5 +41,6 @@ dependencies {
     implementation AndroidSupport.MultiDex
     implementation AndroidSupport.ConstraintLayout
     implementation RxJava
+    implementation Network.Retrofit
 
 }

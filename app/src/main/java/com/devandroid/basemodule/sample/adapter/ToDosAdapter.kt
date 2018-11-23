@@ -20,6 +20,6 @@ class ToDosAdapter : BaseRcAdapter<ToDoInfo, ToDosAdapter.SampleHolder>() {
     }
 
     class SampleHolder(view: View) : BaseRcAdapter.BaseVHolder(view) {
-        val name = view.findViewById<TextView>(R.id.name);
+//        val name = view.findViewById<TextView>(R.id.name);
     }
 }
