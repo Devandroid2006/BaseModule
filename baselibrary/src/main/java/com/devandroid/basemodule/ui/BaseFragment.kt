@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.devandroid.basemodule.utils.inflate
 import com.devandroid.basemodule.utils.logdd
+import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment : Fragment() {
 
     //used to set add the fragment to back stack or not
     //by default it wont back stack
     open var isAddToBackStack = false
+
+    lateinit var mCompositeDisposable: CompositeDisposable
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
@@ -26,6 +29,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         logdd("called")
+        mCompositeDisposable = CompositeDisposable()
         return container?.inflate(getLayoutId())
     }
 
@@ -70,6 +74,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun onDestroy() {
+        mCompositeDisposable.dispose()
         super.onDestroy()
         logdd("called")
     }

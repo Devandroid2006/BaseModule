@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.devandroid.basemodule.utils.logdd
 import com.devandroid.basemodule.utils.printll
+import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    lateinit var mCompositeDisposable: CompositeDisposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +18,8 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(getLayoutId())
         //default orientation of the activity will be portrait
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        mCompositeDisposable = CompositeDisposable()
     }
 
     override fun onStart() {
@@ -45,6 +50,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        mCompositeDisposable.dispose()
         super.onDestroy()
         logdd("called")
     }

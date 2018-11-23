@@ -7,10 +7,12 @@ import android.net.ConnectivityManager
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import com.devandroid.basemodule.BuildConfig
 import com.devandroid.basemodule.R
@@ -36,20 +38,6 @@ fun Context.showShortDurationToast(message: String) {
  */
 fun ViewGroup.inflate(layoutId: Int): View {
     return LayoutInflater.from(context).inflate(layoutId, this, false)
-}
-
-/**
- * show non cancelable alert dialog with the given message
- */
-fun BaseActivity.showNonCancelableAlert(message: String) {
-    AlertDialog.Builder(this)
-        .setTitle(R.string.alert)
-        .setMessage(message)
-        .setPositiveButton(R.string.ok, null)
-        .setCancelable(false)
-        .create()
-        .show()
-
 }
 
 /**
@@ -81,15 +69,34 @@ fun BaseFragment.attachTo(container: Int) {
 /**
  * show non cancelable alert dialog with the given message
  */
+fun BaseActivity.showNonCancelableAlert(message: String) {
+    val dialog = AlertDialog.Builder(this)
+        .setTitle(R.string.alert)
+        .setMessage(message)
+        .setPositiveButton(R.string.ok, null)
+        .setCancelable(false)
+        .create()
+    dialog.show()
+    val textView = dialog.findViewById<TextView>(R.id.message)
+    textView?.maxLines = 5
+    textView?.movementMethod = ScrollingMovementMethod.getInstance()
+}
+
+/**
+ * show non cancelable alert dialog with the given message
+ */
 fun BaseActivity.showNonCancelableAlert(message: String, listener: DialogInterface.OnClickListener) {
-    AlertDialog.Builder(this)
+    val dialog = AlertDialog.Builder(this)
         .setTitle(R.string.alert)
         .setMessage(message)
         .setPositiveButton(R.string.ok, listener)
         .setNegativeButton(R.string.cancel, null)
         .setCancelable(false)
         .create()
-        .show()
+    dialog.show()
+    val textView = dialog.findViewById<TextView>(R.id.message)
+    textView?.maxLines = 5
+    textView?.movementMethod = ScrollingMovementMethod.getInstance()
 }
 
 /**
