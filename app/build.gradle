@@ -42,5 +42,6 @@ dependencies {
     implementation AndroidSupport.ConstraintLayout
     implementation RxJava
     implementation Network.Retrofit
+    implementation ImageLoader.Fresco
 
 }

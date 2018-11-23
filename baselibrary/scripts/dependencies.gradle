@@ -24,9 +24,8 @@ ext {
                                "com.android.support:appcompat-v7:$supportLibraryVersion"
             ],
 
-            //RecyclerView, cardview and material design
+            //RecyclerView, material cardview and material design
             Design          : [
-                    "com.android.support:cardview-v7:$supportLibraryVersion",
                     "com.android.support:design:$supportLibraryVersion",
                     "com.android.support:recyclerview-v7:$supportLibraryVersion"
             ],
@@ -111,6 +110,18 @@ LiveData: [
     //////////////////////////////////////////////////////////////////////////////////
 
     CompileOnly = [
+
+    ]
+    ///////////////////////////////////////////////////////////////////////////////
+
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    ImageLoader = [
+
+            Fresco :[
+                    'com.facebook.fresco:fresco:1.11.0'
+            ]
 
     ]
     ///////////////////////////////////////////////////////////////////////////////

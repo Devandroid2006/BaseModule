@@ -1,6 +1,7 @@
 package com.devandroid.basemodule.utils
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.net.ConnectivityManager
@@ -53,23 +54,9 @@ fun BaseActivity.replaceWith(container: Int, baseFragment: BaseFragment) {
 }
 
 /**
- * add a fragment with back stack support
- */
-fun BaseFragment.attachTo(container: Int) {
-    //return if manager is null
-    val manager = activity?.supportFragmentManager ?: return
-    manager
-        .beginTransaction()
-        .add(container, this, getTAG())
-        //add to back stack if required
-        .addToBackStack(if (isAddToBackStack) getTAG() else null)
-        .commit()
-}
-
-/**
  * show non cancelable alert dialog with the given message
  */
-fun BaseActivity.showNonCancelableAlert(message: String) {
+fun Activity.showNonCancelableAlert(message: String) {
     val dialog = AlertDialog.Builder(this)
         .setTitle(R.string.alert)
         .setMessage(message)
@@ -85,7 +72,7 @@ fun BaseActivity.showNonCancelableAlert(message: String) {
 /**
  * show non cancelable alert dialog with the given message
  */
-fun BaseActivity.showNonCancelableAlert(message: String, listener: DialogInterface.OnClickListener) {
+fun Activity.showNonCancelableAlert(message: String, listener: DialogInterface.OnClickListener) {
     val dialog = AlertDialog.Builder(this)
         .setTitle(R.string.alert)
         .setMessage(message)
@@ -98,6 +85,7 @@ fun BaseActivity.showNonCancelableAlert(message: String, listener: DialogInterfa
     textView?.maxLines = 5
     textView?.movementMethod = ScrollingMovementMethod.getInstance()
 }
+
 
 /**
  * check for the internet availability

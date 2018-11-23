@@ -16,10 +16,12 @@ class ToDosAdapter : BaseRcAdapter<ToDoInfo, ToDosAdapter.SampleHolder>() {
     }
 
     override fun bindView(holder: ToDosAdapter.SampleHolder, model: ToDoInfo) {
-//        holder.name.text = model.name
+        holder.title.text = model.userId.toString()
+        holder.body.text = model.title
     }
 
     class SampleHolder(view: View) : BaseRcAdapter.BaseVHolder(view) {
-//        val name = view.findViewById<TextView>(R.id.name);
+        val title = view.findViewById<TextView>(R.id.title);
+        val body = view.findViewById<TextView>(R.id.body);
     }
 }

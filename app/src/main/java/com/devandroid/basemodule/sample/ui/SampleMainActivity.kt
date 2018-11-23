@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.devandroid.basemodule.sample.R
-import com.devandroid.basemodule.sample.apis.ApiClient
 import com.devandroid.basemodule.ui.BaseActivity
+import com.devandroid.basemodule.utils.isNetworkAvailable
 import com.devandroid.basemodule.utils.logdd
-import com.devandroid.basemodule.utils.logee
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.devandroid.basemodule.utils.replaceWith
+import com.devandroid.basemodule.utils.showNonCancelableAlert
 
 class SampleMainActivity : BaseActivity() {
 
@@ -19,10 +18,12 @@ class SampleMainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        //replace the fragment with container
-//        val sampleFragment = SampleFragment.newInstance
-//        replaceWith(R.id.container, sampleFragment)
-
+        if (isNetworkAvailable()) {
+            //load comments
+            handleCommentsAction()
+        } else {
+            showNonCancelableAlert(getString(R.string.err_no_internet))
+        }
     }
 
 
@@ -34,101 +35,57 @@ class SampleMainActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         logdd("called")
-        when (item?.itemId) {
-            R.id.action_comments -> {
-                handleCommentsAction()
+        if (isNetworkAvailable()) {
+            when (item?.itemId) {
+                R.id.action_comments -> {
+                    handleCommentsAction()
+                }
+                R.id.action_albums -> {
+                    handleAlbumsAction()
+                }
+                R.id.action_photos -> {
+                    handlePhotosAction()
+                }
+                R.id.action_todos -> {
+                    handleToDosAction()
+                }
+                R.id.action_posts -> {
+                    handlePostsAction()
+                }
+                else -> {
+                    //default nothing
+                }
             }
-            R.id.action_albums -> {
-                handleAlbumsAction()
-            }
-            R.id.action_photos -> {
-                handlePhotsAction()
-            }
-            R.id.action_todos -> {
-                handleToDosAction()
-            }
-            R.id.action_posts -> {
-                handlePostsAction()
-            }
-            else -> {
-                //default nothing
-            }
-
+        } else {
+            showNonCancelableAlert(getString(R.string.err_no_internet))
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun handlePostsAction() {
-        mCompositeDisposable.add(
-            ApiClient.provideFakeWebservice()
-                .getPosts()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    logdd(it.toString())
-                }, {
-                    logee(it.localizedMessage)
-                })
-        )
-
+        val baseFragment = PostsFragment.newInstance
+        replaceWith(R.id.container, baseFragment)
     }
 
     private fun handleToDosAction() {
-        mCompositeDisposable.add(
-            ApiClient.provideFakeWebservice()
-                .getToDos()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    logdd(it.toString())
-                }, {
-                    logee(it.localizedMessage)
-                })
-        )
+        val baseFragment = ToDosFragment.newInstance
+        replaceWith(R.id.container, baseFragment)
 
     }
 
-    private fun handlePhotsAction() {
-        mCompositeDisposable.add(
-            ApiClient.provideFakeWebservice()
-                .getPhotos()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    logdd(it.toString())
-                }, {
-                    logee(it.localizedMessage)
-                })
-        )
+    private fun handlePhotosAction() {
+        val baseFragment = PhotosFragment.newInstance
+        replaceWith(R.id.container, baseFragment)
 
     }
 
     private fun handleAlbumsAction() {
-        mCompositeDisposable.add(
-            ApiClient.provideFakeWebservice()
-                .getAlbums()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    logdd(it.toString())
-                }, {
-                    logee(it.localizedMessage)
-                })
-        )
+        val baseFragment = AlbumsFragment.newInstance
+        replaceWith(R.id.container, baseFragment)
     }
 
     private fun handleCommentsAction() {
-        mCompositeDisposable.add(
-            ApiClient.provideFakeWebservice()
-                .getComments()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    logdd(it.toString())
-                }, {
-                    logee(it.localizedMessage)
-                })
-        )
-
+        val baseFragment = CommentsFragment.newInstance
+        replaceWith(R.id.container, baseFragment)
     }
 }

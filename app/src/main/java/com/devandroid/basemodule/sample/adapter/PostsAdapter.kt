@@ -16,10 +16,12 @@ class PostsAdapter : BaseRcAdapter<PostInfo, PostsAdapter.SampleHolder>() {
     }
 
     override fun bindView(holder: PostsAdapter.SampleHolder, model: PostInfo) {
-        // holder.name.text = model.name
+        holder.title.text = model.title
+        holder.body.text = model.body
     }
 
     class SampleHolder(view: View) : BaseRcAdapter.BaseVHolder(view) {
-//        val name = view.findViewById<TextView>(R.id.name);
+        val title = view.findViewById<TextView>(R.id.title);
+        val body = view.findViewById<TextView>(R.id.body);
     }
 }

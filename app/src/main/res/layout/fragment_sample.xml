@@ -3,21 +3,12 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@color/colorAccent"
-             tools:context="com.devandroid.basemodule.sample.ui.SampleFragment">
+             tools:context="com.devandroid.basemodule.sample.ui.CommentsFragment">
 
     <com.devandroid.basemodule.ui.widgets.SupportEmptyRcView
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:visibility="gone"
             android:layout_height="match_parent"/>
-
-    <com.devandroid.basemodule.ui.widgets.MarqueeTextView
-            android:id="@+id/marquee"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="custom  sample testing android marquee view with repeat count infinite, check horizontal scrolling."
-    />
-
 
 </FrameLayout>

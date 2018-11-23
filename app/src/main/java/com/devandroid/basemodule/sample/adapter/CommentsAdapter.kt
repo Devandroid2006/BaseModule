@@ -16,10 +16,12 @@ class CommentsAdapter : BaseRcAdapter<CommentInfo, CommentsAdapter.SampleHolder>
     }
 
     override fun bindView(holder: CommentsAdapter.SampleHolder, model: CommentInfo) {
-//        holder.name.text = model.sample
+        holder.title.text = model.name
+        holder.body.text = model.body
     }
 
     class SampleHolder(view: View) : BaseRcAdapter.BaseVHolder(view) {
-//        val name = view.findViewById<TextView>(R.id.name);
+        val title = view.findViewById<TextView>(R.id.title);
+        val body = view.findViewById<TextView>(R.id.body);
     }
 }
