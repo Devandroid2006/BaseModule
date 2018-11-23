@@ -8,6 +8,7 @@ import com.devandroid.basemodule.sample.R
 import com.devandroid.basemodule.sample.adapter.SampleAdapter
 import com.devandroid.basemodule.sample.model.SampleDataModel
 import com.devandroid.basemodule.ui.BaseFragment
+import com.devandroid.basemodule.utils.attachVerticalManager
 import kotlinx.android.synthetic.main.fragment_sample.*
 
 /**
