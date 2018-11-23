@@ -1,5 +1,6 @@
 package com.devandroid.basemodule.sample.apis
 
+import com.devandroid.basemodule.sample.model.*
 import io.reactivex.Flowable
 import retrofit2.http.GET
 
@@ -11,23 +12,23 @@ import retrofit2.http.GET
 interface FakeWebService {
 
     @GET("/posts/1/comments")
-    fun getComments(): Flowable<String>
+    fun getComments(): Flowable<List<Comments>>
 
     @GET("/albums/1/photos")
-    fun getPhotos(): Flowable<String>
+    fun getPhotos(): Flowable<List<Photos>>
 
     @GET("/users/1/albums")
-    fun getAlbums(): Flowable<String>
+    fun getAlbums(): Flowable<List<Albums>>
 
     @GET("/users/1/todos")
-    fun getToDos(): Flowable<String>
+    fun getToDos(): Flowable<List<ToDos>>
 
     @GET("/users/1/posts")
-    fun getPosts(): Flowable<String>
+    fun getPosts(): Flowable<List<Posts>>
 
 
     companion object {
         //Base url for the web services
-        val BASE_URL: String = "https://jsonplaceholder.typicode.com/"
+        val BASE_URL: String = "http://jsonplaceholder.typicode.com/"
     }
 }

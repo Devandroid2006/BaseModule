@@ -27,8 +27,8 @@ class SampleMainActivity : BaseActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                logdd(it)
-                showNonCancelableAlert(it)
+                logdd(it.toString())
+                showNonCancelableAlert(it.toString())
             }, {
                 logee(it.localizedMessage)
                 showNonCancelableAlert(it.localizedMessage)
