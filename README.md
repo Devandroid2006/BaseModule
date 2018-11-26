@@ -2,18 +2,18 @@
  Android base module for kotiln and java languages.
 
 
-#Supported Features.
+# Supported Features.
 
- *BaseActivity
+ * BaseActivity
 
- *BaseFragment
+ * BaseFragment
 
- *BaseRCAdapter with Empty view support
+ * BaseRCAdapter with Empty view support
 
- *Function extensions for the kotlin
+ * Function extensions for the kotlin
 
- *Generic gradle script for the module dependencies
+ * Generic gradle script for the module dependencies
 
- *Networking and Image loader.
+ * Networking and Image loader.
 
 
